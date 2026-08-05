@@ -25,10 +25,18 @@ def _lagrange_parabola(nodes: tuple[QuadratureNode, ...], x: np.ndarray) -> np.n
     return y0 * l0 + y1 * l1 + y2 * l2
 
 
-def build_3d_area_view(function: FunctionOfX, result: SimpsonSimpleResult, resolution: int = 150) -> go.Figure:
+def sample_curve_and_parabola(
+    function: FunctionOfX, result: SimpsonSimpleResult, resolution: int = 150
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
     x = np.linspace(result.lower_bound, result.upper_bound, resolution)
     y_curve = np.array([function(value) for value in x])
     y_parabola = _lagrange_parabola(result.nodes, x)
+    return x, y_curve, y_parabola
+
+
+def build_3d_area_view(function: FunctionOfX, result: SimpsonSimpleResult, resolution: int = 150) -> go.Figure:
+    x, y_curve, y_parabola = sample_curve_and_parabola(function, result, resolution)
+
 
     ribbon_depth = np.array([0.0, (result.upper_bound - result.lower_bound) * 0.08])
     z_surface = np.tile(y_curve, (2, 1))
