@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --color-void: #0a0e17;
+  --color-panel: #121826;
+  --color-panel-border: #232b3d;
+  --color-text: #e6ebf2;
+  --color-text-dim: #7c8797;
+  --color-signal: #00e5c7;
+  --color-warn: #ff8a3d;
+  --color-node: #ffd60a;
+  --color-error-low: #34d399;
+  --color-error-high: #f87171;
+}
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-void);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(0, 229, 199, 0.05), transparent 40%),
+    radial-gradient(circle at 85% 100%, rgba(255, 138, 61, 0.04), transparent 45%);
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-void);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
