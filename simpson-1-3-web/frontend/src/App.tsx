@@ -44,7 +44,12 @@ export default function App() {
           </h1>
           <p className="mt-1 text-sm text-[var(--color-text-dim)]">Consola de cuadratura numérica</p>
         </div>
-        
+        <div className="flex items-center gap-2 font-mono text-xs text-[var(--color-text-dim)]">
+          <span
+            className={`h-2 w-2 rounded-full ${isLoading ? "animate-pulse bg-[var(--color-warn)]" : "bg-[var(--color-signal)]"}`}
+          />
+          {isLoading ? "calculando" : "listo"}
+        </div>
       </header>
 
       {error && (

@@ -64,7 +64,7 @@ export function QuadratureVisualization({ result }: QuadratureVisualizationProps
     <Plot
       data={data}
       layout={layout}
-      config={{ displaylogo: false, responsive: true, displayModeBar: "hover" }}
+      config={{ displaylogo: false, responsive: true }}
       style={{ width: "100%", height: "420px" }}
       useResizeHandler
     />
