@@ -5,6 +5,8 @@ import { ResultsPanel } from "./components/ResultsPanel";
 import { QuadratureVisualization } from "./components/QuadratureVisualization";
 import { ConvergenceDashboard } from "./components/ConvergenceDashboard";
 
+const HUB_URL = "http://localhost:8080";
+
 function SectionLabel({ children }: { children: string }) {
   return <p className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-dim)]">// {children}</p>;
 }
@@ -37,19 +39,20 @@ export default function App() {
 
   return (
     <div className="mx-auto min-h-screen max-w-6xl px-6 py-8">
-      <header className="mb-8 flex items-center justify-between border-b border-[var(--color-panel-border)] pb-5">
+      <header className="mb-8 flex items-start justify-between border-b border-[var(--color-panel-border)] pb-5">
         <div>
           <h1 className="font-mono text-2xl font-bold tracking-tight">
             SIMPSON <span className="text-[var(--color-signal)]">1/3</span> SIMPLE
           </h1>
           <p className="mt-1 text-sm text-[var(--color-text-dim)]">Consola de cuadratura numérica</p>
         </div>
-        <div className="flex items-center gap-2 font-mono text-xs text-[var(--color-text-dim)]">
-          <span
-            className={`h-2 w-2 rounded-full ${isLoading ? "animate-pulse bg-[var(--color-warn)]" : "bg-[var(--color-signal)]"}`}
-          />
-          {isLoading ? "calculando" : "listo"}
-        </div>
+
+        <a
+          href={HUB_URL}
+          className="font-mono text-xs uppercase tracking-wider text-[var(--color-text-dim)] transition hover:text-[var(--color-signal)]"
+        >
+          ← Volver al inicio
+        </a>
       </header>
 
       {error && (

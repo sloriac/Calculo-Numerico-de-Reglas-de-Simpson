@@ -5,6 +5,8 @@ import { ResultsPanel } from "./components/ResultsPanel";
 import { QuadratureVisualization } from "./components/QuadratureVisualization";
 import { ConvergenceDashboard } from "./components/ConvergenceDashboard";
 
+const HUB_URL = "http://localhost:8080";
+
 function SectionLabel({ children }: { children: string }) {
   return <p className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-dim)]">// {children}</p>;
 }
@@ -37,11 +39,20 @@ export default function App() {
 
   return (
     <div className="mx-auto min-h-screen max-w-6xl px-6 py-8">
-      <header className="mb-8 border-b border-[var(--color-panel-border)] pb-5">
-        <h1 className="font-mono text-2xl font-bold tracking-tight">
-          SIMPSON <span className="text-[var(--color-signal)]">3/8</span> SIMPLE
-        </h1>
-        <p className="mt-1 text-sm text-[var(--color-text-dim)]">Consola de cuadratura numérica</p>
+      <header className="mb-8 flex items-start justify-between border-b border-[var(--color-panel-border)] pb-5">
+        <div>
+          <h1 className="font-mono text-2xl font-bold tracking-tight">
+            SIMPSON <span className="text-[var(--color-signal)]">3/8</span> SIMPLE
+          </h1>
+          <p className="mt-1 text-sm text-[var(--color-text-dim)]">Consola de cuadratura numérica</p>
+        </div>
+
+        <a
+          href={HUB_URL}
+          className="font-mono text-xs uppercase tracking-wider text-[var(--color-text-dim)] transition hover:text-[var(--color-signal)]"
+        >
+          ← Volver al inicio
+        </a>
       </header>
 
       {error && (
