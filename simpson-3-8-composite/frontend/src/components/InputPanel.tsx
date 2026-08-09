@@ -1,4 +1,4 @@
-import { type FormEvent, useState } from "react";
+﻿import { type FormEvent, useState } from "react";
 
 interface Preset {
   label: string;
@@ -9,9 +9,9 @@ interface Preset {
 }
 
 const PRESETS: Preset[] = [
-  { label: "x² + 2x + 4  (informe, n=6)", a: 0, b: 2, n: 6, expression: "x**2 + 2*x + 4" },
-  { label: "sin(x)·e^0.3x, n=21", a: 0, b: 4, n: 21, expression: "sin(x) * exp(0.3*x)" },
-  { label: "1 / (1 + x²), n=9", a: -1, b: 1, n: 9, expression: "1 / (1 + x**2)" },
+  { label: "xÂ² + 2x + 4  (informe, n=6)", a: 0, b: 2, n: 6, expression: "x**2 + 2*x + 4" },
+  { label: "sin(x)Â·e^0.3x, n=21", a: 0, b: 4, n: 21, expression: "sin(x) * exp(0.3*x)" },
+  { label: "1 / (1 + xÂ²), n=9", a: -1, b: 1, n: 9, expression: "1 / (1 + x**2)" },
 ];
 
 interface InputPanelProps {
@@ -40,11 +40,11 @@ export function InputPanel({ onSubmit, isLoading }: InputPanelProps) {
 
   return (
     <div className="rounded-lg border border-[var(--color-panel-border)] bg-[var(--color-panel)] p-5">
-      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-dim)]">Parámetros</h2>
+      <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-[var(--color-text-dim)]">ParÃ¡metros</h2>
 
       <form onSubmit={handleSubmit} className="mt-4 flex flex-col gap-4">
         <label className="flex flex-col gap-1.5">
-          <span className="text-sm text-[var(--color-text-dim)]">Límite inferior · a</span>
+          <span className="text-sm text-[var(--color-text-dim)]">LÃ­mite inferior Â· a</span>
           <input
             value={a}
             onChange={(event) => setA(event.target.value)}
@@ -55,7 +55,7 @@ export function InputPanel({ onSubmit, isLoading }: InputPanelProps) {
         </label>
 
         <label className="flex flex-col gap-1.5">
-          <span className="text-sm text-[var(--color-text-dim)]">Límite superior · b</span>
+          <span className="text-sm text-[var(--color-text-dim)]">LÃ­mite superior Â· b</span>
           <input
             value={b}
             onChange={(event) => setB(event.target.value)}
@@ -66,13 +66,13 @@ export function InputPanel({ onSubmit, isLoading }: InputPanelProps) {
         </label>
 
         <label className="flex flex-col gap-1.5">
-          <span className="text-sm text-[var(--color-text-dim)]">Subintervalos · n (múltiplo de 3)</span>
+          <span className="text-sm text-[var(--color-text-dim)]">Subintervalos Â· n (mÃºltiplo de 3)</span>
           <input
             value={n}
             onChange={(event) => setN(event.target.value)}
             type="number"
             step="3"
-            min="2"
+            min="3"
             className="rounded-md border border-[var(--color-panel-border)] bg-[var(--color-void)] px-3 py-2 font-mono text-[var(--color-node)] outline-none focus:border-[var(--color-signal)]"
           />
         </label>
@@ -93,7 +93,7 @@ export function InputPanel({ onSubmit, isLoading }: InputPanelProps) {
           disabled={isLoading}
           className="mt-1 rounded-md bg-[var(--color-signal)] px-4 py-2.5 font-mono text-sm font-semibold uppercase tracking-wider text-[var(--color-void)] transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
         >
-          {isLoading ? "Calculando…" : "Calcular ▶"}
+          {isLoading ? "Calculandoâ€¦" : "Calcular â–¶"}
         </button>
       </form>
 
